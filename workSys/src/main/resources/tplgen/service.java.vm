@@ -1,0 +1,34 @@
+package ${package.Service};
+
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import ${package.Entity}.${entity};
+import ${package.Parent}.dto.${DtoName};
+import ${superServiceImplClassPackage};
+import org.springframework.stereotype.Service;
+import com.rose.common.base.BaseService;
+import ${package.Parent}.dto.${DtoName};
+import java.util.List;
+import com.rose.common.model.Result;
+/**
+ * $!{table.comment} 业务接口
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+public interface ${table.serviceName} extends BaseService<${entity}> {
+    /**
+     * 条件查询所有
+     *
+     * @param ${dtoName}
+     * @return
+     */
+    Result<List<${entity}>> getList(${DtoName} ${dtoName});
+
+    /**
+     * 分页查询所有
+     *
+     * @param ${dtoName}
+     * @return
+     */
+    Result<Page<${entity}>> getPage(${DtoName} ${dtoName});
+}

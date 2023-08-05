@@ -1,0 +1,44 @@
+package ${package.ServiceImpl};
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.rose.common.model.Result;
+import ${package.Entity}.${entity};
+import ${package.Mapper}.${table.mapperName};
+import ${superServiceImplClassPackage};
+import org.springframework.stereotype.Service;
+import ${package.Service}.${table.serviceName};
+import ${package.Parent}.dto.${DtoName};
+import java.util.List;
+import lombok.extern.log4j.Log4j2;
+/**
+ * $!{table.comment} 业务实现类
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@Log4j2
+@Service
+public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName}{
+    @Override
+    public Result<List<${entity}>> getList(${DtoName} ${dtoName}) {
+        //1.封装请求参数
+        QueryWrapper<${entity}> wrapper = new QueryWrapper<>();
+        //wrapper.eq(StringUtils.hasText(userDTO.getName()),"name",userDTO.getName());
+        return Result.ok(this.baseMapper.selectList(wrapper));
+    }
+
+    @Override
+    public Result<Page<${entity}>> getPage(${DtoName} ${dtoName}) {
+        //1.封装分页数据
+        Page<${entity}> page = new Page<>(${dtoName}.getCurrent(),${dtoName}.getSize());
+
+        //2.封装请求参数
+        QueryWrapper<${entity}> wrapper = new QueryWrapper<>();
+        //wrapper.like(StringUtils.hasText(userDTO.getName()),"name",userDTO.getName());
+
+        return Result.ok(this.baseMapper.selectPage( page,wrapper));
+    }
+
+
+}

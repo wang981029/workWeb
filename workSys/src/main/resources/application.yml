@@ -1,0 +1,45 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/workdb?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+    #druid 连接池配置
+    druid:
+      #初始化连接对象数量
+      initial-size: 20
+      #最小连接数量
+      min-idle: 10
+      #最大活跃数量
+      max-active: 20
+      #最大等待时间
+      max-wait: 3000
+
+mybatis-plus:
+  mapperLocations: classpath*:mappers/*Dao.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+# swagger配置
+swagger:
+  title: '员工管理'
+  base:
+    package: com.wangfuzeng
+  description: '管理员工'
+  url: 'swagger2'
+  contact:
+    name: '王福增'
+    email:
+    url: ''
+  version: 1.0
+
+#默认密码
+default:
+  password: 123456
+
+
