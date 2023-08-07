@@ -15,6 +15,6 @@
 
     <!-- 通用查询结果列  -->
     <sql id="BaseColumnList">
-        Id, emp_name, sex, age, dept_name, emp_degree_name, possword, salt
+        Id, emp_name, sex, age, dept_name, emp_degree_name, password, salt
     </sql>
 </mapper>
